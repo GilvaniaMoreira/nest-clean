@@ -20,6 +20,7 @@
 
 # Env
 .env
+.env.test
 /dist
 
 # Docker
