@@ -12,7 +12,6 @@ import { AuthenticateStudentUseCase } from '@/domain/forum/application/use-cases
 import { WrongCredentialsError } from '@/domain/forum/application/use-cases/errors/wrong-credentials-error'
 import { Public } from '@/infra/auth/public'
 
-
 const authenticateBodySchema = z.object({
   email: z.string().email(),
   password: z.string(),
@@ -24,7 +23,6 @@ type AuthenticateBodySchema = z.infer<typeof authenticateBodySchema>
 @Public()
 export class AuthenticateController {
   constructor(private authenticateStudent: AuthenticateStudentUseCase) {}
-
 
   @Post()
   @UsePipes(new ZodValidationPipe(authenticateBodySchema))

@@ -27,6 +27,7 @@ describe('Comment on Question', () => {
     inMemoryQuestionCommentsRepository = new InMemoryQuestionCommentsRepository(
       inMemoryStudentsRepository,
     )
+
     sut = new CommentOnQuestionUseCase(
       inMemoryQuestionsRepository,
       inMemoryQuestionCommentsRepository,

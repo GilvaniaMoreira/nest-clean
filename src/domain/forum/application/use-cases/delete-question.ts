@@ -11,7 +11,7 @@ interface DeleteQuestionUseCaseRequest {
 
 type DeleteQuestionUseCaseResponse = Either<
   ResourceNotFoundError | NotAllowedError,
-  {}
+  null
 >
 
 @Injectable()
@@ -34,6 +34,6 @@ export class DeleteQuestionUseCase {
 
     await this.questionsRepository.delete(question)
 
-    return right({})
+    return right(null)
   }
 }

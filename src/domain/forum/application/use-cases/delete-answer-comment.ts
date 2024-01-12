@@ -10,7 +10,7 @@ interface DeleteAnswerCommentUseCaseRequest {
 
 type DeleteAnswerCommentUseCaseResponse = Either<
   ResourceNotFoundError | NotAllowedError,
-  {}
+  null
 >
 
 @Injectable()
@@ -35,6 +35,6 @@ export class DeleteAnswerCommentUseCase {
 
     await this.answerCommentsRepository.delete(answerComment)
 
-    return right({})
+    return right(null)
   }
 }

@@ -10,7 +10,6 @@ import { QuestionFactory } from '@/test/factories/make-question'
 import { QuestionAttachmentFactory } from '@/test/factories/make-question-attachments'
 import { StudentFactory } from '@/test/factories/make-student'
 
-
 describe('Get question by slug (E2E)', () => {
   let app: INestApplication
   let studentFactory: StudentFactory
@@ -21,13 +20,13 @@ describe('Get question by slug (E2E)', () => {
 
   beforeAll(async () => {
     const moduleRef = await Test.createTestingModule({
-        imports: [AppModule, DatabaseModule],
-        providers: [
-          StudentFactory,
-          QuestionFactory,
-          AttachmentFactory,
-          QuestionAttachmentFactory,
-        ],
+      imports: [AppModule, DatabaseModule],
+      providers: [
+        StudentFactory,
+        QuestionFactory,
+        AttachmentFactory,
+        QuestionAttachmentFactory,
+      ],
     }).compile()
 
     app = moduleRef.createNestApplication()
@@ -49,9 +48,9 @@ describe('Get question by slug (E2E)', () => {
     const accessToken = jwt.sign({ sub: user.id.toString() })
 
     const question = await questionFactory.makePrismaQuestion({
-        authorId: user.id,
-        title: 'Question 01',
-        slug: Slug.create('question-01'),
+      authorId: user.id,
+      title: 'Question 01',
+      slug: Slug.create('question-01'),
     })
 
     const attachment = await attachmentFactory.makePrismaAttachment({
@@ -70,7 +69,7 @@ describe('Get question by slug (E2E)', () => {
 
     expect(response.statusCode).toBe(200)
     expect(response.body).toEqual({
-    question: expect.objectContaining({
+      question: expect.objectContaining({
         title: 'Question 01',
         author: 'John Doe',
         attachments: [

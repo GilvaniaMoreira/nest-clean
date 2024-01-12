@@ -1,4 +1,5 @@
 import { Module } from '@nestjs/common'
+
 import { AuthenticateController } from './controllers/authenticate.controller'
 import { CreateAccountController } from './controllers/create-account.controller'
 import { CreateQuestionController } from './controllers/create-question.controller'
@@ -40,50 +41,54 @@ import { FetchAnswerCommentsUseCase } from '@/domain/forum/application/use-cases
 import { UploadAttachmentController } from './controllers/upload-attachment.controller'
 import { StorageModule } from '../storage/storage.module'
 import { UploadAndCreateAttachmentUseCase } from '@/domain/forum/application/use-cases/upload-and-create-attachment'
+import { ReadNotificationController } from './controllers/read-notification.controller'
+import { ReadNotificationUseCase } from '@/domain/notification/application/use-cases/read-notification'
 
 @Module({
-    imports: [DatabaseModule, CryptographyModule, StorageModule],
-    controllers: [
-        CreateAccountController,
-        AuthenticateController,
-        CreateQuestionController,
-        FetchRecentQuestionsController,
-        GetQuestionBySlugController,
-        EditQuestionController,
-        DeleteQuestionController,
-        AnswerQuestionController,
-        EditAnswerController,
-        DeleteAnswerController,
-        FetchQuestionAnswersController,
-        ChooseQuestionBestAnswerController,
-        CommentOnQuestionController,
-        DeleteQuestionCommentController,
-        CommentOnAnswerController,
-        DeleteAnswerCommentController,
-        FetchQuestionCommentsController,
-        FetchAnswerCommentsController,
-        UploadAttachmentController,
-      ],
-      providers: [
-        CreateQuestionUseCase,
-        FetchRecentQuestionsUseCase,
-        RegisterStudentUseCase,
-        AuthenticateStudentUseCase,
-        GetQuestionBySlugUseCase,
-        EditQuestionUseCase,
-        DeleteQuestionUseCase,
-        AnswerQuestionUseCase,
-        EditAnswerUseCase,
-        DeleteAnswerUseCase,
-        FetchQuestionAnswersUseCase,
-        ChooseQuestionBestAnswerUseCase,
-        CommentOnQuestionUseCase,
-        DeleteQuestionCommentUseCase,
-        CommentOnAnswerUseCase,
-        DeleteAnswerCommentUseCase,
-        FetchQuestionCommentsUseCase,
-        FetchAnswerCommentsUseCase,
-        UploadAndCreateAttachmentUseCase,
-      ],
-    })
-    export class HttpModule {}
+  imports: [DatabaseModule, CryptographyModule, StorageModule],
+  controllers: [
+    CreateAccountController,
+    AuthenticateController,
+    CreateQuestionController,
+    FetchRecentQuestionsController,
+    GetQuestionBySlugController,
+    EditQuestionController,
+    DeleteQuestionController,
+    AnswerQuestionController,
+    EditAnswerController,
+    DeleteAnswerController,
+    FetchQuestionAnswersController,
+    ChooseQuestionBestAnswerController,
+    CommentOnQuestionController,
+    DeleteQuestionCommentController,
+    CommentOnAnswerController,
+    DeleteAnswerCommentController,
+    FetchQuestionCommentsController,
+    FetchAnswerCommentsController,
+    UploadAttachmentController,
+    ReadNotificationController,
+  ],
+  providers: [
+    CreateQuestionUseCase,
+    FetchRecentQuestionsUseCase,
+    RegisterStudentUseCase,
+    AuthenticateStudentUseCase,
+    GetQuestionBySlugUseCase,
+    EditQuestionUseCase,
+    DeleteQuestionUseCase,
+    AnswerQuestionUseCase,
+    EditAnswerUseCase,
+    DeleteAnswerUseCase,
+    FetchQuestionAnswersUseCase,
+    ChooseQuestionBestAnswerUseCase,
+    CommentOnQuestionUseCase,
+    DeleteQuestionCommentUseCase,
+    CommentOnAnswerUseCase,
+    DeleteAnswerCommentUseCase,
+    FetchQuestionCommentsUseCase,
+    FetchAnswerCommentsUseCase,
+    UploadAndCreateAttachmentUseCase,
+    ReadNotificationUseCase,
+  ],
+})
+export class HttpModule {}

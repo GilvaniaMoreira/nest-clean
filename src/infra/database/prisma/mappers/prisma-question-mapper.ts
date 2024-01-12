@@ -20,6 +20,7 @@ export class PrismaQuestionMapper {
       new UniqueEntityID(raw.id),
     )
   }
+  
   static toPrisma(question: Question): Prisma.QuestionUncheckedCreateInput {
     return {
       id: question.id.toString(),

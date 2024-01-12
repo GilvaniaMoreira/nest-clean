@@ -66,7 +66,6 @@ export class PrismaAnswerCommentsRepository
     return answerComments.map(PrismaCommentWithAuthorMapper.toDomain)
   }
 
-
   async create(answerComment: AnswerComment): Promise<void> {
     const data = PrismaAnswerCommentMapper.toPrisma(answerComment)
 
